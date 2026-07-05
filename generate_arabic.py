@@ -2023,7 +2023,7 @@ def generate_index_html():
 <div class="controls-panel">
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="ابحث عن المثل... 搜索习语..." oninput="filterIdioms()">
-        <span id="searchCount">15 / 15</span>
+        <span id="searchCount">{len(IDIOMS)} / {len(IDIOMS)}</span>
     </div>
     <div class="category-filters">
         <button class="all-btn active" data-category="all" onclick="filterByCategory('all', this)">الكل · 全部</button>
@@ -2037,7 +2037,7 @@ def generate_index_html():
 
 <footer>
     <div>الأمثال العربية · 阿拉伯语习语学习</div>
-    <div style="margin-top:6px;font-size:0.75rem;opacity:0.6">交互式教学 · 15个常用习语 · RTL 排版</div>
+    <div style="margin-top:6px;font-size:0.75rem;opacity:0.6">交互式教学 · {len(IDIOMS)}个常用习语 · RTL 排版</div>
 </footer>
 
 <script>
@@ -2173,7 +2173,7 @@ def generate_idiom_page(idiom):
 
 <div class="top-bar">
     <a href="index.html">← العودة · 返回</a>
-    <div class="nav-counter">{i['id']:02d} / 15</div>
+    <div class="nav-counter">{i['id']:02d} / {len(IDIOMS)}</div>
     <div class="nav-title">الأمثال العربية</div>
 </div>
 
