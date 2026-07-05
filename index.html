@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الأمثال العربية · 阿拉伯语习语学习</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&family=Noto+Sans+SC:wght@300;400;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #1B2A4A;
+    --primary-light: #2C4270;
+    --gold: #C9A84C;
+    --gold-light: #E8D080;
+    --gold-dark: #A8882E;
+    --teal: #2A6B7F;
+    --teal-light: #3D8BA0;
+    --sand: #E8D5B7;
+    --sand-light: #F5EDE1;
+    --burgundy: #6B2D4A;
+    --cream: #FEFCF6;
+    --text-dark: #1A1A2E;
+    --text-light: #F5F0E8;
+    --shadow: 0 4px 24px rgba(27,42,74,0.12);
+    --radius: 14px;
+    --radius-sm: 8px;
+    --gold-grad: linear-gradient(135deg, #C9A84C, #E8D080, #C9A84C);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Readex Pro', 'Noto Sans SC', sans-serif;
+    background-color: var(--cream);
+    color: var(--text-dark);
+    direction: rtl;
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+/* ===== 背景纹饰 ===== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(201,168,76,0.04) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(27,42,74,0.04) 0%, transparent 50%),
+        repeating-linear-gradient(45deg,
+            transparent, transparent 20px,
+            rgba(201,168,76,0.015) 20px, rgba(201,168,76,0.015) 21px),
+        repeating-linear-gradient(-45deg,
+            transparent, transparent 20px,
+            rgba(27,42,74,0.01) 20px, rgba(27,42,74,0.01) 21px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===== 顶部装饰条 ===== */
+.header-decoration {
+    height: 8px;
+    background: linear-gradient(90deg, var(--primary), var(--gold), var(--teal), var(--gold), var(--burgundy), var(--gold), var(--primary));
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== Header ===== */
+header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, #0F1D35 100%);
+    color: var(--cream);
+    padding: 40px 20px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; right: -50%; bottom: -50%;
+    background:
+        radial-gradient(circle at 30% 40%, rgba(201,168,76,0.08) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(42,107,127,0.06) 0%, transparent 40%);
+    animation: headerGlow 15s ease-in-out infinite alternate;
+}
+
+@keyframes headerGlow {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-3%, -5%); }
+}
+
+/* 伊斯兰几何纹样 */
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40px;
+    background:
+        linear-gradient(135deg, var(--gold) 4px, transparent 4px) 0 0,
+        linear-gradient(225deg, var(--gold) 4px, transparent 4px) 0 0;
+    background-size: 14px 14px;
+    background-color: transparent;
+    opacity: 0.35;
+}
+
+header h1 {
+    font-family: 'Amiri', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+header h1 .gold {
+    color: var(--gold);
+}
+
+header .subtitle {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1.1rem;
+    opacity: 0.85;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 2px;
+}
+
+header .arabic-deco {
+    font-family: 'Amiri', serif;
+    font-size: 1.4rem;
+    color: var(--gold-light);
+    opacity: 0.4;
+    margin-top: 8px;
+    letter-spacing: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== 星星装饰 ===== */
+.star-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 10px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.star-decoration span {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 0.9rem;
+    opacity: 0.5;
+}
+
+/* ===== 搜索与分类区域 ===== */
+.controls-panel {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: -25px auto 30px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 30px;
+    border: 1px solid rgba(201,168,76,0.2);
+}
+
+.search-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.search-container input {
+    flex: 1;
+    padding: 14px 20px;
+    border: 2px solid #E8E0D0;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: 'Readex Pro', 'Noto Sans SC', sans-serif;
+    direction: rtl;
+    background: var(--sand-light);
+    color: var(--text-dark);
+    transition: all 0.3s;
+    outline: none;
+}
+
+.search-container input:focus {
+    border-color: var(--gold);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(201,168,76,0.15);
+}
+
+.search-container input::placeholder {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+#searchCount {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 0.85rem;
+    color: #999;
+    white-space: nowrap;
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.category-filters button {
+    padding: 8px 18px;
+    border: 1.5px solid var(--primary);
+    border-radius: 40px;
+    background: transparent;
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-family: 'Readex Pro', 'Noto Sans SC', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    direction: rtl;
+}
+
+.category-filters button:hover {
+    background: rgba(27,42,74,0.06);
+    border-color: var(--gold);
+    color: var(--gold-dark);
+}
+
+.category-filters button.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 2px 12px rgba(27,42,74,0.2);
+}
+
+.category-filters button.all-btn {
+    border-color: var(--gold);
+    color: var(--gold-dark);
+    font-weight: 500;
+}
+
+.category-filters button.all-btn.active {
+    background: var(--gold-grad);
+    color: white;
+    border-color: var(--gold);
+}
+
+/* ===== 习语网格 ===== */
+.idiom-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.idiom-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 24px;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all 0.4s cubic-bezier(.25,.1,.25,1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(201,168,76,0.12);
+}
+
+.idiom-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(27,42,74,0.18);
+    border-color: var(--gold);
+}
+
+/* 卡片顶部装饰线 */
+.idiom-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--teal), var(--gold));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.idiom-card:hover::before {
+    opacity: 1;
+}
+
+/* 阿拉伯纹饰背景 */
+.idiom-card::after {
+    content: '✦';
+    position: absolute;
+    top: -8px; left: -8px;
+    font-size: 4rem;
+    color: rgba(201,168,76,0.04);
+    line-height: 1;
+    pointer-events: none;
+}
+
+.idiom-card .idiom-ar {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.idiom-card .idiom-trans {
+    font-size: 0.8rem;
+    color: var(--teal);
+    font-style: italic;
+    margin-bottom: 8px;
+    direction: ltr;
+    text-align: left;
+}
+
+.idiom-card .idiom-cn {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.idiom-card .idiom-category {
+    display: inline-block;
+    padding: 4px 14px;
+    background: linear-gradient(135deg, var(--sand-light), var(--sand));
+    border-radius: 40px;
+    font-size: 0.75rem;
+    color: var(--primary);
+    margin-top: auto;
+    align-self: flex-start;
+    border: 1px solid rgba(27,42,74,0.08);
+}
+
+.idiom-card .card-number {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: rgba(27,42,74,0.06);
+    line-height: 1;
+    font-family: 'Amiri', serif;
+}
+
+/* ===== 页脚 ===== */
+footer {
+    background: var(--primary);
+    color: var(--cream);
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: var(--gold-grad);
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+    header h1 { font-size: 2rem; }
+    header .subtitle { font-size: 0.95rem; }
+    header .arabic-deco { font-size: 1rem; }
+    .controls-panel { margin: -20px 10px 20px; padding: 18px 16px; }
+    .idiom-grid { grid-template-columns: 1fr; padding: 0 12px 40px; gap: 16px; }
+    .idiom-card { padding: 20px 18px; }
+    .idiom-card .idiom-ar { font-size: 1.3rem; }
+    .category-filters { gap: 6px; }
+    .category-filters button { font-size: 0.78rem; padding: 6px 14px; }
+    .search-container { flex-direction: column; gap: 8px; }
+    #searchCount { padding: 0; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .idiom-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="header-decoration"></div>
+
+<header>
+    <div class="star-decoration">
+        <span>✦</span><span>❋</span><span>✦</span><span>❋</span><span>✦</span>
+    </div>
+    <h1>الأمثال <span class="gold">العربية</span></h1>
+    <div class="subtitle">阿拉伯语习语 · 交互式学习</div>
+    <div class="arabic-deco">بسم الله الرحمن الرحيم</div>
+</header>
+
+<div class="controls-panel">
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="ابحث عن المثل... 搜索习语..." oninput="filterIdioms()">
+        <span id="searchCount">15 / 15</span>
+    </div>
+    <div class="category-filters">
+        <button class="all-btn active" data-category="all" onclick="filterByCategory('all', this)">الكل · 全部</button>
+        <button data-category="التعابير اليومية">التعابير اليومية<br><small style="font-weight:400;font-size:0.7rem;opacity:0.7">日常用语</small></button>
+<button data-category="المشاعر والمواقف">المشاعر والمواقف<br><small style="font-weight:400;font-size:0.7rem;opacity:0.7">情感与处境</small></button>
+<button data-category="الحكمة والأمثال">الحكمة والأمثال<br><small style="font-weight:400;font-size:0.7rem;opacity:0.7">智慧与谚语</small></button>
+<button data-category="الضيافة والعلاقات">الضيافة والعلاقات<br><small style="font-weight:400;font-size:0.7rem;opacity:0.7">待客与关系</small></button>
+<button data-category="الزمن والعمل">الزمن والعمل<br><small style="font-weight:400;font-size:0.7rem;opacity:0.7">时间与工作</small></button>
+
+    </div>
+</div>
+
+<div class="idiom-grid" id="idiomGrid">
+    
+        <a href="idiom-01.html" class="idiom-card" data-category="التعابير اليومية" data-search="على راسي 非常乐意效劳 / 定当照办 ʿalā rāsī">
+            <span class="card-number">01</span>
+            <div class="idiom-ar">على راسي</div>
+            <div class="idiom-trans">ʿalā rāsī</div>
+            <div class="idiom-cn">非常乐意效劳 / 定当照办</div>
+            <div class="idiom-category">التعابير اليومية · 日常用语</div>
+        </a>
+        <a href="idiom-02.html" class="idiom-card" data-category="المشاعر والمواقف" data-search="نور عيني 我的眼中之光 / 我最珍爱的人 nūr ʿaynī">
+            <span class="card-number">02</span>
+            <div class="idiom-ar">نور عيني</div>
+            <div class="idiom-trans">nūr ʿaynī</div>
+            <div class="idiom-cn">我的眼中之光 / 我最珍爱的人</div>
+            <div class="idiom-category">المشاعر والمواقف · 情感与处境</div>
+        </a>
+        <a href="idiom-03.html" class="idiom-card" data-category="التعابير اليومية" data-search="طوّل بالك 放长你的心 / 耐心点 ṭawwil bālak">
+            <span class="card-number">03</span>
+            <div class="idiom-ar">طوّل بالك</div>
+            <div class="idiom-trans">ṭawwil bālak</div>
+            <div class="idiom-cn">放长你的心 / 耐心点</div>
+            <div class="idiom-category">التعابير اليومية · 日常用语</div>
+        </a>
+        <a href="idiom-04.html" class="idiom-card" data-category="الضيافة والعلاقات" data-search="ألف سلامة 一千个平安 / 祝你平安（康复/一路平安） alf salāma">
+            <span class="card-number">04</span>
+            <div class="idiom-ar">ألف سلامة</div>
+            <div class="idiom-trans">alf salāma</div>
+            <div class="idiom-cn">一千个平安 / 祝你平安（康复/一路平安）</div>
+            <div class="idiom-category">الضيافة والعلاقات · 待客与关系</div>
+        </a>
+        <a href="idiom-05.html" class="idiom-card" data-category="الزمن والعمل" data-search="خطفة عين 眨眼的功夫 / 一瞬间 khaṭfat ʿayn">
+            <span class="card-number">05</span>
+            <div class="idiom-ar">خطفة عين</div>
+            <div class="idiom-trans">khaṭfat ʿayn</div>
+            <div class="idiom-cn">眨眼的功夫 / 一瞬间</div>
+            <div class="idiom-category">الزمن والعمل · 时间与工作</div>
+        </a>
+        <a href="idiom-06.html" class="idiom-card" data-category="المشاعر والمواقف" data-search="بين نارين 在两团火之间 / 进退两难 bayna nārayn">
+            <span class="card-number">06</span>
+            <div class="idiom-ar">بين نارين</div>
+            <div class="idiom-trans">bayna nārayn</div>
+            <div class="idiom-cn">在两团火之间 / 进退两难</div>
+            <div class="idiom-category">المشاعر والمواقف · 情感与处境</div>
+        </a>
+        <a href="idiom-07.html" class="idiom-card" data-category="الحكمة والأمثال" data-search="فتح عينيه 睁开了眼睛 / 恍然大悟 fataḥa ʿaynayhi">
+            <span class="card-number">07</span>
+            <div class="idiom-ar">فتح عينيه</div>
+            <div class="idiom-trans">fataḥa ʿaynayhi</div>
+            <div class="idiom-cn">睁开了眼睛 / 恍然大悟</div>
+            <div class="idiom-category">الحكمة والأمثال · 智慧与谚语</div>
+        </a>
+        <a href="idiom-08.html" class="idiom-card" data-category="الحكمة والأمثال" data-search="عين العقل 智慧之眼 / 理性的视角 ʿayn al-ʿaql">
+            <span class="card-number">08</span>
+            <div class="idiom-ar">عين العقل</div>
+            <div class="idiom-trans">ʿayn al-ʿaql</div>
+            <div class="idiom-cn">智慧之眼 / 理性的视角</div>
+            <div class="idiom-category">الحكمة والأمثال · 智慧与谚语</div>
+        </a>
+        <a href="idiom-09.html" class="idiom-card" data-category="المشاعر والمواقف" data-search="صبر جميل 美好的忍耐 / 优雅地承受 ṣabr jamīl">
+            <span class="card-number">09</span>
+            <div class="idiom-ar">صبر جميل</div>
+            <div class="idiom-trans">ṣabr jamīl</div>
+            <div class="idiom-cn">美好的忍耐 / 优雅地承受</div>
+            <div class="idiom-category">المشاعر والمواقف · 情感与处境</div>
+        </a>
+        <a href="idiom-10.html" class="idiom-card" data-category="الحكمة والأمثال" data-search="على قد الفراش مد رجليك 量被伸腿 / 量入为出 ʿalā qadd al-firāsh madd rijlayk">
+            <span class="card-number">10</span>
+            <div class="idiom-ar">على قد الفراش مد رجليك</div>
+            <div class="idiom-trans">ʿalā qadd al-firāsh madd rijlayk</div>
+            <div class="idiom-cn">量被伸腿 / 量入为出</div>
+            <div class="idiom-category">الحكمة والأمثال · 智慧与谚语</div>
+        </a>
+        <a href="idiom-11.html" class="idiom-card" data-category="الزمن والعمل" data-search="ميّت تحت الجسر 桥下的水 / 覆水难收，已成过往 mayy taḥt al-jisr">
+            <span class="card-number">11</span>
+            <div class="idiom-ar">ميّت تحت الجسر</div>
+            <div class="idiom-trans">mayy taḥt al-jisr</div>
+            <div class="idiom-cn">桥下的水 / 覆水难收，已成过往</div>
+            <div class="idiom-category">الزمن والعمل · 时间与工作</div>
+        </a>
+        <a href="idiom-12.html" class="idiom-card" data-category="الضيافة والعلاقات" data-search="أهلاً وسهلاً 家人与坦途 / 热烈欢迎 ahlan wa sahlan">
+            <span class="card-number">12</span>
+            <div class="idiom-ar">أهلاً وسهلاً</div>
+            <div class="idiom-trans">ahlan wa sahlan</div>
+            <div class="idiom-cn">家人与坦途 / 热烈欢迎</div>
+            <div class="idiom-category">الضيافة والعلاقات · 待客与关系</div>
+        </a>
+        <a href="idiom-13.html" class="idiom-card" data-category="التعابير اليومية" data-search="على بالي 在我脑海里 / 我记在心里 ʿalā bālī">
+            <span class="card-number">13</span>
+            <div class="idiom-ar">على بالي</div>
+            <div class="idiom-trans">ʿalā bālī</div>
+            <div class="idiom-cn">在我脑海里 / 我记在心里</div>
+            <div class="idiom-category">التعابير اليومية · 日常用语</div>
+        </a>
+        <a href="idiom-14.html" class="idiom-card" data-category="الضيافة والعلاقات" data-search="يد بيد 手牵手 / 齐心协力、团结合作 yad bi-yad">
+            <span class="card-number">14</span>
+            <div class="idiom-ar">يد بيد</div>
+            <div class="idiom-trans">yad bi-yad</div>
+            <div class="idiom-cn">手牵手 / 齐心协力、团结合作</div>
+            <div class="idiom-category">الضيافة والعلاقات · 待客与关系</div>
+        </a>
+        <a href="idiom-15.html" class="idiom-card" data-category="الحكمة والأمثال" data-search="الصديق وقت الضيق 患难见真情 / 困境时才知谁是真正的朋友 al-ṣadīq waqt al-ḍīq">
+            <span class="card-number">15</span>
+            <div class="idiom-ar">الصديق وقت الضيق</div>
+            <div class="idiom-trans">al-ṣadīq waqt al-ḍīq</div>
+            <div class="idiom-cn">患难见真情 / 困境时才知谁是真正的朋友</div>
+            <div class="idiom-category">الحكمة والأمثال · 智慧与谚语</div>
+        </a>
+</div>
+
+<footer>
+    <div>الأمثال العربية · 阿拉伯语习语学习</div>
+    <div style="margin-top:6px;font-size:0.75rem;opacity:0.6">交互式教学 · 15个常用习语 · RTL 排版</div>
+</footer>
+
+<script>
+function filterIdioms() {
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    const cards = document.querySelectorAll('.idiom-card');
+    let count = 0;
+    cards.forEach(c => {
+        const searchData = c.getAttribute('data-search').toLowerCase();
+        const match = !q || searchData.includes(q);
+        c.style.display = match ? '' : 'none';
+        if (match) count++;
+    });
+    document.getElementById('searchCount').textContent = count + ' / ' + cards.length;
+}
+
+function filterByCategory(cat, btn) {
+    document.querySelectorAll('.category-filters button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.idiom-card');
+    let count = 0;
+    cards.forEach(c => {
+        if (cat === 'all' || c.getAttribute('data-category') === cat) {
+            c.style.display = '';
+            count++;
+        } else {
+            c.style.display = 'none';
+        }
+    });
+    document.getElementById('searchCount').textContent = count + ' / ' + cards.length;
+    document.getElementById('searchInput').value = '';
+}
+</script>
+
+</body>
+</html>
