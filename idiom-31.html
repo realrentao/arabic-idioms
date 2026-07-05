@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الصحة تاج على رؤوس الأصحاء · 阿拉伯语习语</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&family=Noto+Sans+SC:wght@300;400;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #1B2A4A;
+    --primary-light: #2C4270;
+    --gold: #C9A84C;
+    --gold-light: #E8D080;
+    --gold-dark: #A8882E;
+    --teal: #2A6B7F;
+    --teal-light: #3D8BA0;
+    --sand: #E8D5B7;
+    --sand-light: #F5EDE1;
+    --burgundy: #6B2D4A;
+    --cream: #FEFCF6;
+    --text-dark: #1A1A2E;
+    --text-light: #F5F0E8;
+    --shadow: 0 4px 24px rgba(27,42,74,0.12);
+    --radius: 14px;
+    --radius-sm: 8px;
+    --gold-grad: linear-gradient(135deg, #C9A84C, #E8D080, #C9A84C);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Readex Pro', 'Noto Sans SC', sans-serif;
+    background-color: var(--cream);
+    color: var(--text-dark);
+    direction: rtl;
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(201,168,76,0.04) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(27,42,74,0.04) 0%, transparent 50%),
+        repeating-linear-gradient(45deg,
+            transparent, transparent 20px,
+            rgba(201,168,76,0.015) 20px, rgba(201,168,76,0.015) 21px),
+        repeating-linear-gradient(-45deg,
+            transparent, transparent 20px,
+            rgba(27,42,74,0.01) 20px, rgba(27,42,74,0.01) 21px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===== 导航栏 ===== */
+.top-bar {
+    background: var(--primary);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+}
+
+.top-bar a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.top-bar a:hover { opacity: 1; }
+
+.top-bar .nav-title {
+    font-family: 'Amiri', serif;
+    color: var(--gold);
+    font-size: 1rem;
+    margin-right: auto;
+}
+
+.top-bar .nav-counter {
+    background: rgba(201,168,76,0.2);
+    color: var(--gold);
+    padding: 2px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+}
+
+/* ===== 顶部装饰条 ===== */
+.header-decoration {
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary), var(--gold), var(--teal), var(--gold), var(--burgundy), var(--gold), var(--primary));
+}
+
+/* ===== 主内容区 ===== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== 习语标题区块 ===== */
+.idiom-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    text-align: center;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(27,42,74,0.2);
+}
+
+.idiom-header::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; right: -50%; bottom: -50%;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(201,168,76,0.06) 0%, transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(42,107,127,0.04) 0%, transparent 40%);
+}
+
+.idiom-header .idiom-ar {
+    font-family: 'Amiri', serif;
+    font-size: 2.8rem;
+    color: var(--gold-light);
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.3);
+    line-height: 1.4;
+}
+
+.idiom-header .idiom-trans {
+    font-size: 0.95rem;
+    color: var(--teal-light);
+    margin-top: 6px;
+    direction: ltr;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+}
+
+.idiom-header .idiom-cn {
+    font-size: 1.2rem;
+    color: var(--sand);
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 1px;
+}
+
+.idiom-header .idiom-en {
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.6);
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+    direction: ltr;
+}
+
+.idiom-header .play-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 10px 28px;
+    background: var(--gold-grad);
+    border: none;
+    border-radius: 40px;
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.idiom-header .play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+}
+
+.idiom-header .play-btn:active { transform: scale(0.97); }
+
+.idiom-header .play-btn .icon {
+    font-size: 1.2rem;
+}
+
+/* ===== 语速控制 ===== */
+.speed-control {
+    position: relative;
+    z-index: 1;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.speed-control label {
+    color: rgba(245,240,232,0.7);
+    font-size: 0.8rem;
+}
+
+.speed-control button {
+    padding: 4px 14px;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--sand);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.speed-control button:hover {
+    background: rgba(201,168,76,0.15);
+    border-color: var(--gold);
+}
+
+.speed-control button.active {
+    background: var(--gold-grad);
+    color: var(--primary);
+    border-color: var(--gold);
+    font-weight: 600;
+}
+
+/* ===== 分类标签 ===== */
+.idiom-category-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 18px;
+    background: linear-gradient(135deg, var(--sand-light), var(--sand));
+    border-radius: 40px;
+    font-size: 0.8rem;
+    color: var(--primary);
+    border: 1px solid rgba(27,42,74,0.1);
+    margin-bottom: 20px;
+}
+
+/* ===== 章节卡片 ===== */
+.section {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 30px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(201,168,76,0.1);
+}
+
+.section-title {
+    font-family: 'Amiri', serif;
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--sand);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title .gold-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ===== 含义区块 ===== */
+.meaning-content {
+    padding: 4px 0;
+}
+
+.meaning-content .ar-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.meaning-content .trans-text {
+    color: #888;
+    font-size: 0.9rem;
+    padding-right: 20px;
+    border-right: 3px solid var(--gold);
+    margin-bottom: 10px;
+}
+
+.meaning-content .toggle-trans {
+    color: var(--teal);
+    cursor: pointer;
+    font-size: 0.82rem;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.meaning-content .toggle-trans:hover { opacity: 0.7; }
+
+/* ===== 用法说明 ===== */
+.usage-box {
+    background: linear-gradient(135deg, rgba(27,42,74,0.03), rgba(42,107,127,0.03));
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: var(--radius-sm);
+    padding: 16px 18px;
+    margin-top: 12px;
+}
+
+.usage-box .usage-label {
+    font-size: 0.8rem;
+    color: var(--gold-dark);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.usage-box .usage-text {
+    font-size: 0.92rem;
+    color: #666;
+}
+
+/* ===== 文化注释 ===== */
+.cultural-box {
+    background: linear-gradient(135deg, rgba(42,107,127,0.04), rgba(201,168,76,0.04));
+    border: 1px solid rgba(42,107,127,0.12);
+    border-radius: var(--radius-sm);
+    padding: 16px 18px;
+    margin-top: 4px;
+}
+
+.cultural-box .cultural-label {
+    font-size: 0.8rem;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.cultural-box .cultural-text {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.9;
+}
+
+/* ===== 例句区块 ===== */
+.examples-list {
+    list-style: none;
+}
+
+.example-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #F0EAE0;
+}
+
+.example-item:last-child { border-bottom: none; }
+
+.example-item .speaker {
+    font-weight: 600;
+    color: var(--teal);
+    font-size: 0.85rem;
+    min-width: 50px;
+    flex-shrink: 0;
+    padding-top: 2px;
+}
+
+.example-item .speech {
+    flex: 1;
+    min-width: 0;
+}
+
+.example-item .speech .ar-speech {
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    display: inline;
+}
+
+.example-item .speech .cn-speech {
+    color: #888;
+    font-size: 0.85rem;
+    margin-top: 2px;
+    padding-right: 12px;
+    display: block;
+}
+
+.example-item .play-ex-btn {
+    background: none;
+    border: none;
+    color: var(--gold-dark);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.65rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    margin-right: 6px;
+    opacity: 0.6;
+}
+
+.example-item .play-ex-btn:hover {
+    opacity: 1;
+    background: rgba(201,168,76,0.12);
+}
+
+/* ===== 含义播放按钮 ===== */
+.play-meaning-btn {
+    background: none;
+    border: 1.5px solid var(--teal);
+    color: var(--teal);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+.play-meaning-btn:hover {
+    background: var(--teal);
+    color: white;
+    border-color: var(--teal);
+}
+
+/* ===== 练习区块 ===== */
+.exercise-block {
+    margin-top: 20px;
+}
+
+.exercise-block .exercise {
+    background: var(--sand-light);
+    border-radius: var(--radius-sm);
+    padding: 18px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(201,168,76,0.12);
+}
+
+.exercise .ex-question {
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.exercise .ex-input {
+    padding: 8px 14px;
+    border: 2px solid #DDD;
+    border-radius: 6px;
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    width: 120px;
+    direction: rtl;
+    outline: none;
+    transition: border-color 0.3s;
+    margin: 0 2px;
+}
+
+.exercise .ex-input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+}
+
+.exercise .ex-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.exercise .ex-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 2px solid #E0D8CC;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.3s;
+    background: white;
+}
+
+.exercise .ex-option:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.04);
+}
+
+.exercise .ex-option input[type="radio"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #CCC;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3s;
+}
+
+.exercise .ex-option input[type="radio"]:checked {
+    border-color: var(--gold);
+    background: var(--gold);
+    box-shadow: inset 0 0 0 4px white;
+}
+
+.exercise .ex-option .option-label {
+    font-family: 'Amiri', serif;
+    font-size: 0.95rem;
+}
+
+.exercise .ex-btn {
+    margin-top: 12px;
+    padding: 8px 24px;
+    background: var(--gold-grad);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--primary);
+    font-weight: 600;
+    font-family: 'Readex Pro', 'Noto Sans SC', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.exercise .ex-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+}
+
+.exercise .ex-btn:active { transform: translateY(0); }
+
+.exercise .ex-feedback {
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    display: none;
+}
+
+.exercise .ex-feedback.correct {
+    display: block;
+    background: #E8F5E9;
+    color: #2E7D32;
+    border: 1px solid #A5D6A7;
+}
+
+.exercise .ex-feedback.wrong {
+    display: block;
+    background: #FFF3E0;
+    color: #E65100;
+    border: 1px solid #FFCC80;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+    .container { padding: 16px 10px 40px; }
+    .idiom-header { padding: 24px 18px; }
+    .idiom-header .idiom-ar { font-size: 2rem; }
+    .idiom-header .idiom-cn { font-size: 1rem; }
+    .section { padding: 18px 16px; }
+    .section-title { font-size: 1.1rem; }
+    .example-item { flex-direction: column; gap: 4px; }
+    .example-item .speaker { min-width: auto; }
+    .top-bar { padding: 10px 14px; }
+    .exercise .ex-input { width: 90px; }
+}
+
+@media (max-width: 480px) {
+    .idiom-header .idiom-ar { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+    <a href="index.html">← العودة · 返回</a>
+    <div class="nav-counter">31 / 15</div>
+    <div class="nav-title">الأمثال العربية</div>
+</div>
+
+<div class="header-decoration"></div>
+
+<div class="container">
+
+    <div class="idiom-category-tag">الحكمة والأمثال · 智慧与谚语</div>
+
+    <div class="idiom-header">
+        <div class="idiom-ar">الصحة تاج على رؤوس الأصحاء</div>
+        <div class="idiom-trans">al-ṣiḥḥatu tājun ʿalā ruʾūs al-aṣiḥḥāʾ</div>
+        <div class="idiom-cn">健康是戴在健康者头上的王冠</div>
+        <div class="idiom-en">Health is a crown worn by the healthy (only seen by the sick)</div>
+        <button class="play-btn" onclick="playMainAudio()"><span class="icon">▶</span> استمع · 听发音</button>
+        <div class="speed-control">
+            <label>السرعة · 语速:</label>
+            <button onclick="setSpeed(0.6)" data-speed="0.6">0.6×</button>
+            <button onclick="setSpeed(1.0)" class="active" data-speed="1.0">1.0×</button>
+            <button onclick="setSpeed(1.4)" data-speed="1.4">1.4×</button>
+        </div>
+    </div>
+
+    <!-- 含义 -->
+    <div class="section">
+        <div class="section-title"><span class="gold-dot"></span> المعنى · 含义</div>
+        <div class="meaning-content">
+            <div class="ar-text" style="display:flex;align-items:flex-start;gap:10px;">
+                <span>يعني أن الصحة هي أغلى ما يملك الإنسان، لكنه لا يشعر بقيمتها إلا عندما يفقدها.</span>
+                <button class="play-meaning-btn" onclick="playMeaningAudio()" title="播放含义发音">▶</button>
+            </div>
+            <div class="trans-text" id="meaningTrans">意思是健康是人拥有的最宝贵的东西，但只有当失去时才感受到它的价值。</div>
+        </div>
+        <div class="usage-box">
+            <div class="usage-label">الاستخدام · 用法</div>
+            <div class="usage-text">劝人注重健康，珍惜身体</div>
+        </div>
+    </div>
+
+    <!-- 文化注释 -->
+    <div class="section">
+        <div class="section-title"><span class="gold-dot"></span> الخلفية الثقافية · 文化背景</div>
+        <div class="cultural-box">
+            <div class="cultural-text">这是阿拉伯世界广为流传的谚语。它与其他文化中「健康是最大的财富」的智慧相通。在阿拉伯医学传统中，伊本·西那（阿维森纳）的《医典》就强调预防胜于治疗。</div>
+        </div>
+    </div>
+
+    <!-- 例句 -->
+    <div class="section">
+        <div class="section-title"><span class="gold-dot"></span> أمثلة · 例句</div>
+        <ul class="examples-list">
+            
+        <li class="example-item">
+            <span class="speaker">طبيب</span>
+            <div class="speech">
+                <div class="ar-speech">الصحة تاج على رؤوس الأصحاء. <button class="play-ex-btn" onclick="playExample(0)" title="播放">▶</button></div>
+                <div class="cn-speech">健康是戴在健康者头上的王冠。</div>
+            </div>
+        </li>
+        <li class="example-item">
+            <span class="speaker">مريض</span>
+            <div class="speech">
+                <div class="ar-speech">لما مرضت عرفت قيمة الصحة. <button class="play-ex-btn" onclick="playExample(1)" title="播放">▶</button></div>
+                <div class="cn-speech">生病了我才知健康的可贵。</div>
+            </div>
+        </li>
+        <li class="example-item">
+            <span class="speaker">صديق</span>
+            <div class="speech">
+                <div class="ar-speech">اهتم بصحتك، مش أي حي. <button class="play-ex-btn" onclick="playExample(2)" title="播放">▶</button></div>
+                <div class="cn-speech">注意身体，不是闹着玩的。</div>
+            </div>
+        </li>
+        <li class="example-item">
+            <span class="speaker">صديق</span>
+            <div class="speech">
+                <div class="ar-speech">الصحة تاج، فعلاً. <button class="play-ex-btn" onclick="playExample(3)" title="播放">▶</button></div>
+                <div class="cn-speech">健康真的是王冠啊。</div>
+            </div>
+        </li>
+        </ul>
+    </div>
+
+    <!-- 练习 -->
+    <div class="section">
+        <div class="section-title"><span class="gold-dot"></span> تمرين · 练习</div>
+        <div class="exercise-block">
+            
+            <div class="exercise">
+                <div class="ex-question">الصحة تاج على رؤوس ___</div>
+                <div class="ex-options">
+                <label class="ex-option">
+                    <input type="radio" name="ex-31-0" value="A">
+                    <span class="option-label">الأصحاء / 健康者</span>
+                </label>
+                <label class="ex-option">
+                    <input type="radio" name="ex-31-0" value="B">
+                    <span class="option-label">الأغنياء / 富人</span>
+                </label>
+                <label class="ex-option">
+                    <input type="radio" name="ex-31-0" value="C">
+                    <span class="option-label">الأمراء / 王子</span>
+                </label>
+                <label class="ex-option">
+                    <input type="radio" name="ex-31-0" value="D">
+                    <span class="option-label">العلماء / 学者</span>
+                </label></div>
+                <button class="ex-btn" onclick="checkChoice('ex-31-0','A')">تحقق · 检查</button>
+                <div class="ex-feedback" id="fb-ex-31-0"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <div>الصحة تاج على رؤوس الأصحاء · 健康是戴在健康者头上的王冠</div>
+    <div style="margin-top:6px;font-size:0.75rem;opacity:0.6">عود إلى <a href="index.html" style="color:var(--gold);">الصفحة الرئيسية · 首页</a></div>
+</footer>
+
+<script>
+// ===== 音频系统（内联base64，无需fetch）=====
+let playbackSpeed = 1.0;
+
+// 内联音频数据
+const MAIN_AUDIO_B64 = "";
+const MEANING_AUDIO_B64 = "";
+const MEANING_AUDIO_MP3 = "audio/Xpz1qXniNDX8V52q.mp3";
+const EX_AUDIO_B64 = ["", "", "", ""];
+const EX_AUDIO_MP3 = ["audio/Jo6174HrliY9MiFI.mp3", "audio/nVaLMJu1UWUMekWS.mp3", "audio/nZxYX00McgWK_Gqs.mp3", "audio/PZ2KexWZiLX2eFsM.mp3"];
+
+function playMainAudio() {
+    playAudioWithFallback('audio/YU_xaF009kvLfSNf.mp3', MAIN_AUDIO_B64);
+}
+
+function playExample(idx) {
+    playAudioWithFallback(EX_AUDIO_MP3[idx], EX_AUDIO_B64[idx]);
+}
+
+function playAudioWithFallback(mp3Path, b64data) {
+    const audio = new Audio(mp3Path);
+    audio.playbackRate = playbackSpeed;
+    audio.onerror = function() {
+        if (b64data) {
+            const a = new Audio('data:audio/mpeg;base64,' + b64data);
+            a.playbackRate = playbackSpeed;
+            a.play().catch(e => console.warn('音频播放失败（备用）:', e));
+        } else {
+            console.warn('无可用音频数据:', mp3Path);
+        }
+    };
+    audio.play().catch(function() {
+        // 首次播放失败，触发 onerror 走备用
+    });
+}
+
+function playMeaningAudio() {
+    playAudioWithFallback(MEANING_AUDIO_MP3, MEANING_AUDIO_B64);
+}
+
+function setSpeed(speed) {
+    playbackSpeed = speed;
+    document.querySelectorAll('.speed-control button').forEach(b => {
+        b.classList.toggle('active', parseFloat(b.dataset.speed) === speed);
+    });
+}
+
+// ===== 练习检查 =====
+function clearFillFeedback(name) {
+    const fb = document.getElementById('fb-' + name);
+    fb.className = 'ex-feedback';
+    // 重置所有输入框边框
+    const inputs = document.querySelectorAll('[id^="fill-' + name + '"]');
+    inputs.forEach(inp => inp.style.borderColor = '#DDD');
+}
+function checkChoice(name, correct) {
+    const selected = document.querySelector('input[name="' + name + '"]:checked');
+    const fb = document.getElementById('fb-' + name);
+    if (!selected) {
+        fb.className = 'ex-feedback wrong';
+        fb.textContent = '⚠️ الرجاء اختيار إجابة · 请选择一个选项';
+        return;
+    }
+    if (selected.value === correct) {
+        fb.className = 'ex-feedback correct';
+        fb.textContent = '✅ صحيح! · 正确！';
+    } else {
+        fb.className = 'ex-feedback wrong';
+        fb.textContent = '❌ خطأ · 不正确，再试一次';
+    }
+}
+
+function checkFill(name, answers) {
+    const fb = document.getElementById('fb-' + name);
+    let allCorrect = true;
+
+    // 阿拉伯语归一化：去变音符 + 统一字母变体 + 去空/标点
+    function normalizeArabic(s) {
+        let t = s;
+        // 1) 去掉变音符号 (tashkeel): fatha, kasra, damma, sukun, shadda, madd, etc.
+        t = t.replace(/[ً-ٰٟ]/g, '');
+        // 2) 统一 alif 变体 → 裸 alif
+        t = t.replace(/[آأإٱ]/g, 'ا');
+        // 3) 统一 teh marbuta → heh
+        t = t.replace(/ة/g, 'ه');
+        // 4) 统一 alif maksura → ya
+        t = t.replace(/ى/g, 'ي');
+        // 5) 去空白 + 标点
+        t = t.replace(/[\s،؟!.;:,()()""']/g, '');
+        return t;
+    }
+
+    answers.forEach((ans, i) => {
+        const input = document.getElementById('fill-' + name + '-' + i);
+        const userVal = input.value.trim();
+        if (normalizeArabic(userVal) !== normalizeArabic(ans)) {
+            allCorrect = false;
+            input.style.borderColor = '#E65100';
+        } else {
+            input.style.borderColor = '#4CAF50';
+        }
+    });
+    if (allCorrect) {
+        fb.className = 'ex-feedback correct';
+        fb.textContent = '✅ صحيح! كل الإجابات صحيحة · 全部正确！';
+    } else {
+        fb.className = 'ex-feedback wrong';
+        fb.textContent = '❌ خطأ · 还有错误，再试一次';
+    }
+}
+
+function showFillAnswer(name, answers) {
+    answers.forEach((ans, i) => {
+        const input = document.getElementById('fill-' + name + '-' + i);
+        input.value = ans;
+        input.style.borderColor = '#4CAF50';
+    });
+    const fb = document.getElementById('fb-' + name);
+    fb.className = 'ex-feedback correct';
+    fb.textContent = '💡 الإجابة الصحيحة · 正确答案已显示';
+}
+</script>
+
+</body>
+</html>
