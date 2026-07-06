@@ -2125,9 +2125,9 @@ def generate_idiom_page(idiom):
             <div class="exercise">
                 <div class="ex-question">{escape(q_text)}</div>
                 <div>{fill_html}</div>
-                <button class="ex-btn" onclick="checkFill('{ex_id}', {json.dumps(parts)})">تحقق · 检查</button>
+                <button class="ex-btn" onclick='checkFill("{ex_id}", {json.dumps(parts)})'>تحقق · 检查</button>
                 <div class="ex-feedback" id="fb-{ex_id}"></div>
-                <button class="ex-btn" style="background:transparent;border:1px solid var(--teal);color:var(--teal);margin-right:8px" onclick="showFillAnswer('{ex_id}', {json.dumps(parts)})">إظهار الإجابة · 显示答案</button>
+                <button class="ex-btn" style="background:transparent;border:1px solid var(--teal);color:var(--teal);margin-right:8px" onclick='showFillAnswer("{ex_id}", {json.dumps(parts)})'>إظهار الإجابة · 显示答案</button>
             </div>"""
 
     # ---- 读取音频内联数据 ----
